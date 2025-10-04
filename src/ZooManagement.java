@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class ZooManagement {
+
+    public static void main(String[] args) {
+
+        int nbrCages = 20;
+        String zooName = " zoo";
+
+        ZooManagement zooManagement = new ZooManagement();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("entrer le nom du zoo : ");
+            String s = scanner.nextLine();
+            if (!s.isEmpty()) {
+                zooName = s;
+                break;
+            } else {
+                System.out.println("zooName doit etre une chaine non vide ");
+            }
+        }
+        while (true){
+            System.out.println("entrer le nombre de cages : ");
+            int i = scanner.nextInt();
+            if (i > 0){
+                nbrCages = i;
+                break;
+            }
+            else {
+                System.out.println("le nombre de cages doit etre superieur a 0 ");
+            }
+        }
+        Animal lion = new Animal();
+        lion.setFamily("king");
+        lion.setName("simba");
+        lion.setAge(5);
+        lion.setMammal(true);
+
+        Zoo myzoo2 = new Zoo();
+        myzoo2.setName("mehdizoo");
+        myzoo2.setCity("tunis");
+        //myzoo2.nbrCages = 25;
+        myzoo2.setAnimals(new Animal[5]);
+
+        Zoo myzoo = new Zoo("myZoo", "tunis" );
+        Animal tiger = new Animal("siberian", "tiger",4, true);
+        Animal elephant = new Animal("african", "elephant", 4, false);
+        Animal eagle = new Animal("bald", "eagle", 2, true);
+
+        //myzoo.displayZoo();
+        System.out.println(myzoo);
+        System.out.println(myzoo.toString());
+        System.out.println(tiger);
+        System.out.println(tiger.toString());
+
+        for (int i = 0; i < 25; i++) {
+            Animal a = new Animal();
+            boolean result = myzoo.addAnimal(a);
+            if (!result) {
+                System.out.println("Impossible d'ajouter l'animal " + i);
+            }
+        }
+        myzoo2.afficherAnimaux();
+        Animal girafe = new Animal("savannah", "giraffe", 6, true);
+        myzoo2.addAnimal(girafe);
+
+        int index = myzoo2.searchAnimal(girafe);
+        System.out.println("Giraffe trouvée à l’indice : " + index);
+        Animal giraffe2 = new Animal("savannah", "giraffe", 6, true);
+
+        int index2 = myzoo2.searchAnimal(giraffe2);
+        System.out.println("Giraffe2 trouvée à l’indice : " + index2);
+
+        myzoo2.removeAnimal(girafe);
+
+
+        System.out.printf(zooName + " comporte " + nbrCages + " cages ");
+
+
+    }
+}
