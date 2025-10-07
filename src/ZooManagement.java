@@ -72,9 +72,30 @@ public class ZooManagement {
         System.out.println("Giraffe2 trouvée à l’indice : " + index2);
 
         myzoo2.removeAnimal(girafe);
-
-
         System.out.printf(zooName + " comporte " + nbrCages + " cages ");
+
+        Aquatic aquatic1 = new Aquatic();
+        Terrestrial terrestrial1 = new Terrestrial();
+        Dolphin dolphin1 = new Dolphin();
+        Penguin penguin1 = new Penguin();
+
+        Aquatic aquatic2 = new Aquatic("Fish", "Nemo", 3, false, "ocean");
+        Terrestrial terrestrial2 = new Terrestrial("snake", "youssef", 5, false,0);
+        Dolphin dolphin2 = new Dolphin("Cetacea", "Flipper", 8, true, "sea", 60.5f);
+        Penguin penguin2 = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctic", 250.0f);
+
+        System.out.println(aquatic2);
+        System.out.println(terrestrial2);
+        System.out.println(dolphin2);
+        System.out.println(penguin2);
+        System.out.println();
+
+        System.out.print("Aquatic: ");
+        aquatic2.swim();
+        System.out.print("Dolphin: ");
+        dolphin2.swim();
+
+
 
 
     }
