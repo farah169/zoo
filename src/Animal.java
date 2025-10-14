@@ -50,4 +50,5 @@ public sealed class Animal permits Aquatic, Terrestrial {
         return "Animal { family'" + family + "', name'" + name + "', age'" + age + "', isMammal'";
     }
 
+
 }

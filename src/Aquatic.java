@@ -21,4 +21,17 @@ public non-sealed class Aquatic extends Animal{
         System.out.println("This aquatic animal is swimming.");
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(obj instanceof Aquatic)) return false;
+
+        Aquatic aquatic = (Aquatic) obj;
+        return this.getName().equals(aquatic.getName()) &&
+                this.getAge() == aquatic.getAge() &&
+                this.habitat.equals(aquatic.habitat);
+    }
 }
+
+
+

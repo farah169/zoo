@@ -96,6 +96,39 @@ public class ZooManagement {
         dolphin2.swim();
 
 
+        Dolphin dolphin3 = new Dolphin("Delphinidae", "Flipper", 5, true, "Ocean", 40.5f);
+        Dolphin dolphin4= new Dolphin("Delphinidae", "Dolly", 8, true, "Sea", 35.0f);
+        Dolphin dolphin5 = new Dolphin("Delphinidae", "Marina", 3, true, "Ocean", 38.2f);
+
+        Penguin penguin3 = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctica", 150.0f);
+        Penguin penguin4 = new Penguin("Spheniscidae", "Happy Feet", 2, false, "Antarctica", 200.5f);
+        Penguin penguin5 = new Penguin("Spheniscidae", "Skipper", 6, false, "Antarctica", 180.0f);
+
+        myzoo.addAquaticAnimal(dolphin3);
+        myzoo.addAquaticAnimal(dolphin4);
+        myzoo.addAquaticAnimal(dolphin5);
+        myzoo.addAquaticAnimal(penguin3);
+        myzoo.addAquaticAnimal(penguin4);
+        myzoo.addAquaticAnimal(penguin5);
+
+        myzoo.displayZoo();
+
+        Aquatic[] aquatics = myzoo.getAquaticAnimals();
+        for (int i = 0; i < myzoo.getAquaticCount(); i++) {
+            System.out.print(aquatics[i].getName() + ": ");
+            aquatics[i].swim();
+        }
+
+        float maxDepth = myzoo.maxPenguinSwimmingDepth();
+        myzoo.displayNumberOfAquaticsByType();
+
+        Penguin penguin6 = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctica", 150.0f);
+        Penguin penguin7 = new Penguin("Spheniscidae", "Different", 4, false, "Antarctica", 150.0f);
+
+        System.out.println("penguin1.equals(penguin4): " + penguin1.equals(penguin4));
+
+
+
 
 
     }

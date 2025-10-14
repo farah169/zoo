@@ -4,6 +4,24 @@ public class Zoo {
     private String city;
     public static final int NBRCAGES =25;
     private int nbrAnimals;
+    private Aquatic [] aquaticAnimals;
+    private int aquaticCount;
+
+    public Aquatic[] getAquaticAnimals() {
+        return aquaticAnimals;
+    }
+
+    public void setAquaticAnimals(Aquatic[] aquaticAnimals) {
+        this.aquaticAnimals = aquaticAnimals;
+    }
+
+    public int getAquaticCount() {
+        return aquaticCount;
+    }
+
+    public void setAquaticCount(int aquaticCount) {
+        this.aquaticCount = aquaticCount;
+    }
 
     public Animal[] getAnimals() {
         return animals;
@@ -45,6 +63,8 @@ public class Zoo {
         animals = new Animal[NBRCAGES];
         this.name = name;
         this.city = city;
+        this.aquaticAnimals = new Aquatic[10];
+        this.aquaticCount = 0;
 
     }
 
@@ -128,5 +148,47 @@ public class Zoo {
 
     public boolean isZooFull() {
         return nbrAnimals >= NBRCAGES;
+    }
+
+    public void addAquaticAnimal(Aquatic aquatic) {
+
+        if (aquaticCount < aquaticAnimals.length) {
+            aquaticAnimals[aquaticCount] = aquatic;
+            aquaticCount++;
+            System.out.println(" added: " + aquatic.getName());
+        } else {
+            System.out.println(" it is full!");
+        }
+    }
+
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0;
+
+        for (int i = 0; i < aquaticCount; i++) {
+            // Utilisation de instanceof pour vérifier le type
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimals[i]; // Cast
+                if (penguin.getSwimmingDepth() > maxDepth) {
+                    maxDepth = penguin.getSwimmingDepth();
+                }
+            }
+        }
+        return maxDepth;
+    }
+
+    public void displayNumberOfAquaticsByType() {
+        int dolphinCount = 0;
+        int penguinCount = 0;
+
+        for (int i = 0; i < aquaticCount; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin) {
+                dolphinCount++;
+            } else if (aquaticAnimals[i] instanceof Penguin) {
+                penguinCount++;
+            }
+        }
+        System.out.println("Number of Dolphins: " + dolphinCount);
+        System.out.println("Number of Penguins: " + penguinCount);
+        System.out.println("Total Aquatics: " + aquaticCount);
     }
 }
